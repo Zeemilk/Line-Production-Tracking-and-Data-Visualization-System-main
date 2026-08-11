@@ -2,9 +2,9 @@
     $Columns = ['datetime', 'type', 'qty', 'line_name', 'product_type','empno'];
     $ColumnPut = ['datetime', 'type', 'qty', 'line_name', 'product_type','empno'];
     $options = include './function/planlineoption.php';
-    $lineOptions = $options['lineOptions'];
-    $producttypeOptions = $options['producttypeOptions'];
-    $lineProductMapping = $options['lineProductMapping'];
+    $lineOptions = $options['lineOptions'] ?? '';
+    $producttypeOptions = $options['producttypeOptions'] ?? '';
+    $lineProductMapping = $options['lineProductMapping'] ?? [];
     $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
@@ -234,9 +234,9 @@
     $Columns = ['datetime', 'type', 'qty', 'line_name', 'product_type','empno'];
     $ColumnPut = ['datetime', 'type', 'qty', 'line_name', 'product_type','empno'];
     $options = include './function/planlineoption.php';
-    $lineOptions = $options['lineOptions'];
-    $producttypeOptions = $options['producttypeOptions'];
-    $lineProductMapping = $options['lineProductMapping'];
+    $lineOptions = $options['lineOptions'] ?? '';
+    $producttypeOptions = $options['producttypeOptions'] ?? '';
+    $lineProductMapping = $options['lineProductMapping'] ?? [];
     $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>

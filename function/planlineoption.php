@@ -42,8 +42,36 @@ if ($newdb) {
     }
     oci_free_statement($stid);
 }
+
+// Build line-to-product-type mapping from production_plan
+$lineProductMapping = [];
+if ($newdb) {
+    $sql = "SELECT DISTINCT
+                line_name,
+                product_type
+            FROM
+                production_plan
+            ORDER BY
+                line_name,
+                product_type";
+    $stid = oci_parse($newdb, $sql);
+    oci_execute($stid);
+    while ($row = oci_fetch_assoc($stid)) {
+        $lineName = htmlspecialchars($row['LINE_NAME']);
+        $productType = htmlspecialchars($row['PRODUCT_TYPE']);
+        if (!isset($lineProductMapping[$lineName])) {
+            $lineProductMapping[$lineName] = [];
+        }
+        if (!in_array($productType, $lineProductMapping[$lineName])) {
+            $lineProductMapping[$lineName][] = $productType;
+        }
+    }
+    oci_free_statement($stid);
+}
+
 return [
     "lineOptions" => $lineOptions,
-    "producttypeOptions" => $producttypeOptions
+    "producttypeOptions" => $producttypeOptions,
+    "lineProductMapping" => $lineProductMapping
 ];
 ?>

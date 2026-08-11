@@ -567,7 +567,22 @@ class MockStore
             $producttypeOptions .= '<option value="' . htmlspecialchars($t) . '">' . htmlspecialchars($t) . '</option>';
         }
         
-        return ['lineOptions' => $lineOptions, 'producttypeOptions' => $producttypeOptions];
+        // Build line-to-product-type mapping
+        $lineProductMapping = [];
+        foreach ($planRows as $row) {
+            $lineName = $row['LINE_NAME'] ?? $row['line_name'] ?? '';
+            $productType = $row['PRODUCT_TYPE'] ?? $row['product_type'] ?? '';
+            if ($lineName !== '' && $productType !== '') {
+                if (!isset($lineProductMapping[$lineName])) {
+                    $lineProductMapping[$lineName] = [];
+                }
+                if (!in_array($productType, $lineProductMapping[$lineName])) {
+                    $lineProductMapping[$lineName][] = $productType;
+                }
+            }
+        }
+        
+        return ['lineOptions' => $lineOptions, 'producttypeOptions' => $producttypeOptions, 'lineProductMapping' => $lineProductMapping];
     }
 
     public static function wipLastMonthOptions(): array
