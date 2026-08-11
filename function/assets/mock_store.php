@@ -140,7 +140,7 @@ class MockStore
         }
 
         $header = null;
-        while (($line = fgetcsv($handle)) !== false) {
+        while (($line = fgetcsv($handle, null, ",", "\"", "\\")) !== false) {
             if ($line === [null] || count($line) === 0) {
                 continue;
             }
