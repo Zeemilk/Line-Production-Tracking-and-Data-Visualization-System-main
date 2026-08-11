@@ -1,10 +1,5 @@
-run = "php -S 0.0.0.0:8000 index.php"
+run = "php -S 0.0.0.0:8000"
 language = "php"
-hidden = [".config", "**/__pycache__", "**/.pytest_cache", "**/.ipynb_checkpoints"]
-modules = ["php-8.2", "web", "nix"]
-
-[nix]
-channel = "stable-24_05"
 
 [ports]
 localPort = 8000
