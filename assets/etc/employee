@@ -1,0 +1,6 @@
+"DEPARTMENT","SECTION","EMPLOYEE_CODE","NAME_ENG","NAME_THAI","STATUS","POSCODE","POSNAME","PASSWORD","EMP_START_DATE","EMP_CCC"
+"1","110","000001","John Smith","????? ????","Working","DEV001","Software Developer","123456",15 JAN 2020,""
+"2","210","000002","Sarah Johnson","?????? ????????","Working","HR001","HR Manager","123456",20 MAR 2019,""
+"3","320","000003","Michael Brown","?????? ??????","Working","PROD001","Production Supervisor","123456",10 JUN 2021,""
+"4","430","000004","Emily Davis","??????? ?????","Working","QA001","QA Engineer","123456",01 FEB 2022,""
+"5","540","000005","David Wilson","????? ??????","Resigned","SALES001","Sales Representative","123456",12 MAY 2018,"01-DEC-24"
