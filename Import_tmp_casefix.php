@@ -7,7 +7,6 @@
     $lineProductMapping = $options['lineProductMapping'];
     $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
